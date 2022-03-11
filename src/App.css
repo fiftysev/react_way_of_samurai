@@ -1,16 +1,22 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .App-wrapper {
   display: grid;
-  grid-template-areas: 
-  "h h"
-  "n c";
+  grid-template-areas:
+    "header header"
+    "nav content";
   grid-template-rows: 4rem 1fr;
   grid-template-columns: 2fr 10fr;
+  min-height: 100vh;
 }
 
 .header {
   display: flex;
   align-items: center;
-  grid-area: h;
+  grid-area: header;
   background-color: black;
 }
 
@@ -20,7 +26,7 @@
 }
 
 .nav {
-  grid-area: n;
+  grid-area: nav;
   background-color: palevioletred;
 }
 
@@ -29,8 +35,7 @@
 }
 
 .content {
-  grid-area: c;
-  min-height: 100vh;
+  grid-area: content;
   background-color: steelblue;
 }
 
