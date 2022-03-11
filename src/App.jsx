@@ -1,9 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import { useRef } from "react";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   const [data, setData] = useState();
@@ -25,13 +23,7 @@ const App = () => {
   return (
     <div className="App-wrapper">
       <Header />
-      <nav className="nav">
-        <a href="#">Profile</a>
-        <a href="#">Messages</a>
-        <a href="#">News</a>
-        <a href="#">Music</a>
-        <a href="#">Settings</a>
-      </nav>
+      <Navbar />
       <main className="content">
         {!isLoading && (
           <div className="profile">
