@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import styles from "./profile.module.css";
+import Posts from "./Posts/Posts";
+import s from "./profile.module.css";
 
 const Profile = () => {
   const [data, setData] = useState();
@@ -18,20 +19,23 @@ const Profile = () => {
     getUser();
   }, []);
   return (
-    <div className={styles.content}>
+    <div className={s.content}>
       {!isLoading && (
-        <div className={styles.profile}>
-          <img src={`${data.avatar}`} alt="asdfsdf" className={styles.avatar} />
-          <div className={styles.info}>
-            <p>
-              {data.first_name} {data.last_name}
-            </p>
-            <p>{data.email}</p>
+        <div className={s.wrapper}>
+          <div className={s.profile}>
+            <img src={`${data.avatar}`} alt="asdfsdf" className={s.avatar} />
+            <div className={s.info}>
+              <p className={s.info__text}>
+                {data.first_name} {data.last_name}
+              </p>
+              <p className={s.info__text}>{data.email}</p>
+            </div>
           </div>
         </div>
       )}
+      <Posts />
     </div>
-  )
-}
+  );
+};
 
 export default Profile;

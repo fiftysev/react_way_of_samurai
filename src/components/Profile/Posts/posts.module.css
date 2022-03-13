@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.title {
+  color: white;
+}
+
+.post__form {
+  display: grid;
+  grid-template-columns: 1fr 10rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form__input {
+  resize: none;
+  outline: none;
+  font-size: 1.5rem;
+}
+
+.form__button {
+  height: 2.5rem;
+  margin: auto 0;
+  font-size: 1.25rem;
+  border-radius: 0.25rem;
+  border: none;
+  background-color: black;
+  color: white;
+}
