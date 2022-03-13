@@ -16,7 +16,8 @@ const Posts = () => {
         />
         <button className={s.form__button}>Add post</button>
       </div>
-      <Post />
+      <Post text="My first post!" />
+      <Post text="It's props lesson from React course" likes={45} />
     </div>
   );
 };

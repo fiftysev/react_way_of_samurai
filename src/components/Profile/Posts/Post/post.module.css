@@ -1,5 +1,7 @@
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 4rem 1fr 15%;
+  gap: 1rem;
   padding: 0.5rem;
   border-bottom: 1px solid black;
   background-color: white;
@@ -8,13 +10,11 @@
 .container img {
   width: 4rem;
   height: 4rem;
-  margin-right: 1rem;
   object-fit: cover;
   border-radius: 50%;
 }
 
 .text {
   margin: auto 0;
-  display: inline-block;
   font-size: 1.25rem;
 }
