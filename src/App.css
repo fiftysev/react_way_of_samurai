@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap");
 * {
   font-family: "Jura", sans-serif;
+  font-size: 1.25rem;
 }
 
 a {
@@ -14,7 +15,7 @@ a {
     "header header"
     "nav content";
   grid-template-rows: 4rem 1fr;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 1.5fr 10fr;
   min-height: 100vh;
 }
 

@@ -18,13 +18,11 @@
 .form__input {
   resize: none;
   outline: none;
-  font-size: 1.5rem;
 }
 
 .form__button {
   height: 2.5rem;
   margin: auto 0;
-  font-size: 1.25rem;
   border-radius: 0.25rem;
   border: none;
   background-color: black;

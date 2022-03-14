@@ -2,7 +2,7 @@
   --gap_for_items: 1rem;
   --gap_in_item: 0.25rem;
   --height_for_item: 7rem;
-  --item__width: 4.5rem;
+  --item__width: 3.6rem;
 }
 
 .container {
@@ -31,12 +31,11 @@
 .item p {
   margin: 0;
   text-align: center;
-  font-size: 1.25rem;
 }
 
 a.active {
   color: white;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .btn__group {
@@ -49,5 +48,4 @@ button.btn {
   background: none;
   color: white;
   border: none;
-  font-size: 1.25rem;
 }
