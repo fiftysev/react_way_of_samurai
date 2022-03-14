@@ -2,21 +2,20 @@
   --gap_for_items: 1rem;
   --gap_in_item: 0.25rem;
   --height_for_item: 7rem;
+  --item__width: 4.5rem;
 }
 
 .container {
   margin: 0.5rem 0;
+  max-width: calc(var(--item__width) * 3 + var(--gap_in_item) * 2);
   display: flex;
   gap: var(--gap_for_items);
-  overflow-x: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-.container::-webkit-scrollbar {
-  display: none;
-}
-
 .item {
+  width: var(--item__width);
   height: fit-content;
   align-items: center;
   color: white;
@@ -25,6 +24,7 @@
 .item img {
   height: 60px;
   width: 60px;
+  border: 1px solid black;
   border-radius: 50%;
 }
 
@@ -49,5 +49,5 @@ button.btn {
   background: none;
   color: white;
   border: none;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
 }
