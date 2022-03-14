@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { v4 } from "uuid";
 import s from "./dialogs_list.module.css";
 
 const DialogsListItem = (props) => {
@@ -16,7 +17,7 @@ const DialogsList = (props) => {
   return (
     <div className={s.container}>
       {props.dialogs.map((v) => (
-        <DialogsListItem name={v.name} id={v.id} key={v.id} />
+        <DialogsListItem name={v.name} id={v.id} key={v4()} />
       ))}
     </div>
   );

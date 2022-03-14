@@ -1,0 +1,86 @@
+export const state = {
+  dialogsPage: {
+
+    dialogs: [
+      {
+        id: 1,
+        name: "Egor",
+      },
+      {
+        id: 2,
+        name: "Zhenya",
+      },
+      {
+        id: 3,
+        name: "Сэмчик",
+      },
+    ],
+
+    messages: [
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+    ],
+  },
+  profilePage: {
+
+    posts: [
+      {
+        text: "My first post!",
+      },
+      {
+        text: "It's props lesson from React course",
+        likes: 424,
+      },
+      {
+        text: "It's props lesson from React course",
+        likes: 424,
+      },
+      {
+        text: "It's props lesson from React course",
+        likes: 424,
+      },
+      {
+        text: "My first post!",
+      },
+      {
+        text: "My first post!",
+        likes: 32,
+      },
+      {
+        text: "My first post!",
+      },
+    ]
+  }
+}

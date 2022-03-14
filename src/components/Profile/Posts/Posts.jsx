@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "./Post/Post";
 import s from "./posts.module.css";
+import { v4 } from "uuid";
 
 const Posts = (props) => {
   return (
@@ -17,7 +18,7 @@ const Posts = (props) => {
         <button className={s.form__button}>Add post</button>
       </div>
       {props.posts.map((v) => (
-        <Post text={v.text} likes={v.likes} key={v.likes} />
+        <Post text={v.text} likes={v.likes} key={v4()} />
       ))}
     </div>
   );
