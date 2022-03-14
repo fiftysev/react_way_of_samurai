@@ -13,24 +13,9 @@ const DialogsListItem = (props) => {
 };
 
 const DialogsList = (props) => {
-  const dialogItems = [
-    {
-      id: 1,
-      name: "Egor",
-    },
-    {
-      id: 2,
-      name: "Zhenya",
-    },
-    {
-      id: 3,
-      name: "Сэмчик",
-    },
-  ];
-
   return (
     <div className={s.container}>
-      {dialogItems.map((v) => (
+      {props.dialogs.map((v) => (
         <DialogsListItem name={v.name} id={v.id} key={v.id} />
       ))}
     </div>

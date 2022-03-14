@@ -1,39 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Posts from "./Posts/Posts";
 import s from "./profile.module.css";
 
-const Profile = () => {
-  const [data, setData] = useState();
-  const [isLoading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const getUser = async () => {
-      await fetch("https://reqres.in/api/users/2")
-        .then((res) => res.json())
-        .then((v) => {
-          setData(v.data);
-          setLoading(false);
-        });
-    };
-
-    getUser();
-  }, []);
+const Profile = (props) => {
   return (
     <>
-      {!isLoading && (
-        <div className={s.wrapper}>
-          <div className={s.profile}>
-            <img src={`${data.avatar}`} alt="asdfsdf" className={s.avatar} />
-            <div className={s.info}>
-              <p className={s.info__text}>
-                {data.first_name} {data.last_name}
-              </p>
-              <p className={s.info__text}>{data.email}</p>
-            </div>
+      <div className={s.wrapper}>
+        <div className={s.profile}>
+          <img
+            src={"https://source.unsplash.com/random/128x128"}
+            alt="avatar"
+            className={s.avatar}
+          />
+          <div className={s.info}>
+            <p className={s.info__text}>Janet Weaver</p>
+            <p className={s.info__text}>janet.weaver@reqres.in</p>
           </div>
         </div>
-      )}
-      <Posts />
+      </div>
+      <Posts posts={props.posts} />
     </>
   );
 };
