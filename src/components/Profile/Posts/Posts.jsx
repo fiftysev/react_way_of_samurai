@@ -3,6 +3,34 @@ import Post from "./Post/Post";
 import s from "./posts.module.css";
 
 const Posts = () => {
+  const posts = [
+    {
+      text: "My first post!",
+    },
+    {
+      text: "It's props lesson from React course",
+      likes: 424,
+    },
+    {
+      text: "It's props lesson from React course",
+      likes: 424,
+    },
+    {
+      text: "It's props lesson from React course",
+      likes: 424,
+    },
+    {
+      text: "My first post!",
+    },
+    {
+      text: "My first post!",
+      likes: 32,
+    },
+    {
+      text: "My first post!",
+    },
+  ];
+
   return (
     <div className={s.container}>
       <h2 className={s.title}>My posts</h2>
@@ -16,14 +44,9 @@ const Posts = () => {
         />
         <button className={s.form__button}>Add post</button>
       </div>
-      <Post text="My first post!" />
-      <Post text="It's props lesson from React course" likes={45} />
-      <Post text="It's props lesson from React course" likes={45} />
-      <Post text="It's props lesson from React course" likes={45} />
-      <Post text="It's props lesson from React course" likes={45} />
-      <Post text="It's props lesson from React course" likes={45} />
-      <Post text="It's props lesson from React course" likes={45} />
-      <Post text="It's props lesson from React course" likes={45} />
+      {posts.map((v) => (
+        <Post text={v.text} likes={v.likes} key={v.likes} />
+      ))}
     </div>
   );
 };

@@ -10,13 +10,48 @@ const DialogMessage = (props) => {
 };
 
 const Dialog = () => {
+  const messages = [
+    {
+      message: "Test",
+    },
+    {
+      message: "Test",
+      alignRight: true,
+    },
+    {
+      message: "Test",
+    },
+    {
+      message: "Test",
+      alignRight: true,
+    },
+    {
+      message: "Test",
+    },
+    {
+      message: "Test",
+    },
+    {
+      message: "Test",
+    },
+    {
+      message: "Test",
+    },
+    {
+      message: "Test",
+      alignRight: true,
+    },
+    {
+      message: "Test",
+      alignRight: true,
+    },
+  ];
+
   return (
     <div className={s.container}>
-      <DialogMessage message="Test" alignRight={true} />
-      <DialogMessage message="Test" />
-      <DialogMessage message="Test" />
-      <DialogMessage message="Test" alignRight={true} />
-      <DialogMessage message="Test" alignRight={true} />
+      {messages.map((v) => (
+        <DialogMessage message={v.message} alignRight={v?.alignRight} />
+      ))}
     </div>
   );
 };
