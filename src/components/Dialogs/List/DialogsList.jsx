@@ -4,19 +4,20 @@ import s from "./dialogs_list.module.css";
 
 const DialogsListItem = (props) => {
   return (
-    <div className={s.item}>
+    <NavLink to={`/dialogs/${props.id}`} className={s.item}>
+      {" "}
       <img src="https://source.unsplash.com/random/60x60" alt="" />
-      <NavLink to="/dialogs">{props.name || "User"}</NavLink>
-    </div>
+      {props.name || "User"}
+    </NavLink>
   );
 };
 
 const DialogsList = (props) => {
   return (
     <div className={s.container}>
-      <DialogsListItem name="Egor" />
-      <DialogsListItem name="Zhenya" />
-      <DialogsListItem name="Сэмчик" />
+      <DialogsListItem name="Egor" id={1} />
+      <DialogsListItem name="Zhenya" id={2} />
+      <DialogsListItem name="Сэмчик" id={3} />
     </div>
   );
 };
