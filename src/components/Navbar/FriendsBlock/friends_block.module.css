@@ -1,0 +1,53 @@
+:root {
+  --gap_for_items: 1rem;
+  --gap_in_item: 0.25rem;
+  --height_for_item: 7rem;
+}
+
+.container {
+  margin: 0.5rem 0;
+  display: flex;
+  gap: var(--gap_for_items);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  height: fit-content;
+  align-items: center;
+  color: white;
+}
+
+.item img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.item p {
+  margin: 0;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+a.active {
+  color: white;
+  font-weight: bold;
+}
+
+.btn__group {
+  display: flex;
+  justify-content: space-between;
+}
+
+button.btn {
+  cursor: pointer;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 1.15rem;
+}

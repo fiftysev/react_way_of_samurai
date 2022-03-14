@@ -82,5 +82,37 @@ export const state = {
         text: "My first post!",
       },
     ]
+  },
+
+  navbar: {
+    friends: [
+      {
+        name: "Alex"
+      },
+      {
+        name: "Sam"
+      },
+      {
+        name: "Egor"
+      },
+      {
+        name: "Fred"
+      },
+      {
+        name: "Anna"
+      },
+      {
+        name: "Yohan"
+      },
+      {
+        name: "Mary"
+      },
+      {
+        name: "Bob"
+      },
+      {
+        name: "John"
+      },
+    ]
   }
 }
