@@ -20,5 +20,5 @@ a {
 
 .App-wrapper__content {
   grid-area: content;
-  background-color: steelblue;
+  background-color: rgb(58, 58, 58);
 }
