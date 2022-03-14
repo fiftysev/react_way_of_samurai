@@ -6,7 +6,12 @@
 
 .nav a {
   display: block;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 1.75rem;
   margin: 0.25rem 0;
+}
+
+a.active {
+  color: white;
+  font-weight: 700;
 }
