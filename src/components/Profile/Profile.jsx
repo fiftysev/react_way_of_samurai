@@ -19,7 +19,7 @@ const Profile = () => {
     getUser();
   }, []);
   return (
-    <div className={s.content}>
+    <>
       {!isLoading && (
         <div className={s.wrapper}>
           <div className={s.profile}>
@@ -34,7 +34,7 @@ const Profile = () => {
         </div>
       )}
       <Posts />
-    </div>
+    </>
   );
 };
 
