@@ -18,6 +18,12 @@ const Posts = () => {
       </div>
       <Post text="My first post!" />
       <Post text="It's props lesson from React course" likes={45} />
+      <Post text="It's props lesson from React course" likes={45} />
+      <Post text="It's props lesson from React course" likes={45} />
+      <Post text="It's props lesson from React course" likes={45} />
+      <Post text="It's props lesson from React course" likes={45} />
+      <Post text="It's props lesson from React course" likes={45} />
+      <Post text="It's props lesson from React course" likes={45} />
     </div>
   );
 };
