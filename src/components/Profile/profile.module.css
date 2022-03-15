@@ -36,6 +36,7 @@
 
 .info__text {
   margin: 0;
+  font-size: 1.2rem;
   font-weight: bold;
   color: white;
 }
