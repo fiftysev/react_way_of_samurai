@@ -1,6 +1,8 @@
-export const state = {
-  dialogsPage: {
+import _ from "lodash";
+import { runTreeRender } from "../render";
 
+export let state = {
+  dialogsPage: {
     dialogs: [
       {
         id: 1,
@@ -54,7 +56,6 @@ export const state = {
     ],
   },
   profilePage: {
-
     posts: [
       {
         text: "My first post!",
@@ -81,38 +82,47 @@ export const state = {
       {
         text: "My first post!",
       },
-    ]
+    ],
   },
 
   navbar: {
     friends: [
       {
-        name: "Alex"
+        name: "Alex",
       },
       {
-        name: "Sam"
+        name: "Sam",
       },
       {
-        name: "Egor"
+        name: "Egor",
       },
       {
-        name: "Fred"
+        name: "Fred",
       },
       {
-        name: "Anna"
+        name: "Anna",
       },
       {
-        name: "Yohan"
+        name: "Yohan",
       },
       {
-        name: "Mary"
+        name: "Mary",
       },
       {
-        name: "Bob"
+        name: "Bob",
       },
       {
-        name: "John"
+        name: "John",
       },
-    ]
-  }
-}
+    ],
+  },
+};
+
+export let addPost = (text) => {
+  state.profilePage.posts.push({
+    id: 5,
+    text,
+    likes: 45,
+  });
+  runTreeRender(state, { addPost });
+};
