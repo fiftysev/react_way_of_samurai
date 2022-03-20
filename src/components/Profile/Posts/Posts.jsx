@@ -12,6 +12,8 @@ const Posts = (props) => {
         <textarea
           ref={newPost}
           className={s.form__input}
+          value={props.newPostText}
+          onChange={() => props.updateNewPostText(newPost.current.value)}
           name="postText"
           id="create_post"
           cols="20"
@@ -20,8 +22,8 @@ const Posts = (props) => {
         <button
           className={s.form__button}
           onClick={() => {
-            props.addPost(newPost.current.value);
-            newPost.current.value = "";
+            props.addPost();
+            props.updateNewPostText("");
           }}>
           Add post
         </button>

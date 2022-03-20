@@ -1,4 +1,4 @@
-import { state, addPost } from "./redux/state";
+import { state, addPost, updateNewPostText } from "./redux/state";
 import { runTreeRender } from "./render";
 
-runTreeRender(state, { addPost });
+runTreeRender(state, { addPost, updateNewPostText });

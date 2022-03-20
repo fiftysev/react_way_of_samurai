@@ -1,13 +1,13 @@
 .container {
-  background-image: #99afff;
-  background-image: radial-gradient(
-      at 54% 25%,
-      hsla(243, 88%, 70%, 1) 0,
-      transparent 54%
-    ),
-    radial-gradient(at 35% 93%, hsla(232, 72%, 70%, 1) 0, transparent 55%),
-    radial-gradient(at 69% 94%, hsla(269, 82%, 74%, 1) 0, transparent 40%),
-    radial-gradient(at 14% 67%, hsla(333, 61%, 68%, 1) 0, transparent 45%);
+  background: #99afff;
+  background: radial-gradient(
+          at 54% 25%,
+          hsla(243, 88%, 70%, 1) 0,
+          transparent 54%
+  ),
+  radial-gradient(at 35% 93%, hsla(232, 72%, 70%, 1) 0, transparent 55%),
+  radial-gradient(at 69% 94%, hsla(269, 82%, 74%, 1) 0, transparent 40%),
+  radial-gradient(at 14% 67%, hsla(333, 61%, 68%, 1) 0, transparent 45%);
   gap: 1rem;
   padding: 1rem 2rem;
   display: flex;
@@ -29,4 +29,11 @@
 
 .message.align_right {
   align-self: flex-end;
+}
+
+.input_group {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: black;
 }

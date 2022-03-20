@@ -17,8 +17,109 @@ export let state = {
         name: "Сэмчик",
       },
     ],
-
     messages: [
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
+      {
+        message: "Test",
+        alignRight: true,
+      },
       {
         message: "Test",
       },
@@ -83,6 +184,7 @@ export let state = {
         text: "My first post!",
       },
     ],
+    newPostText: "",
   },
 
   navbar: {
@@ -118,11 +220,16 @@ export let state = {
   },
 };
 
-export let addPost = (text) => {
+export const addPost = () => {
   state.profilePage.posts.push({
     id: 5,
-    text,
+    text: state.profilePage.newPostText,
     likes: 45,
   });
   runTreeRender(state, { addPost });
+};
+
+export const updateNewPostText = (text) => {
+  state.profilePage.newPostText = text;
+  runTreeRender(state, { addPost, updateNewPostText });
 };
