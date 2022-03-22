@@ -1,6 +1,3 @@
-import _ from "lodash";
-import { runTreeRender } from "../render";
-
 export let state = {
   dialogsPage: {
     dialogs: [
@@ -148,4 +145,12 @@ export let state = {
       },
     ],
   },
+};
+
+let runTreeRender = () => {
+  console.log("Render runned");
+};
+
+export const subscribe = (observer) => {
+  runTreeRender = observer;
 };
