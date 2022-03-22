@@ -10,6 +10,7 @@
   radial-gradient(at 14% 67%, hsla(333, 61%, 68%, 1) 0, transparent 45%);
   gap: 1rem;
   padding: 1rem 2rem;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -32,8 +33,32 @@
 }
 
 .input_group {
-  width: 100%;
+  width: 90%;
+  align-self: center;
   display: flex;
-  justify-content: space-between;
-  background: black;
+  padding: 0 1rem;
+  gap: 1rem;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 2rem;
+}
+
+.input_group .text_input {
+  flex: 1;
+  color: white;
+  resize: none;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.input_group .btn {
+  width: 6rem;
+  height: 2.25rem;
+  color: white;
+  font-weight: 700;
+  background: #0088CC;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: none;
 }

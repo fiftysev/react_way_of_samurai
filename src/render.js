@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
-export const runTreeRender = (state, actions) =>
+export const runTreeRender = (state) =>
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} actions={actions} />
+      <App state={state} />
     </React.StrictMode>,
     document.getElementById("root")
   );

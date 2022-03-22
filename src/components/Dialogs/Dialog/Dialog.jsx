@@ -12,16 +12,14 @@ const DialogMessage = (props) => {
 
 const Dialog = (props) => {
   return (
-    <div className={s.wrapper}>
-      <div className={s.container}>
-        {props.messages.map((v) => (
-          <DialogMessage
-            message={v.message}
-            alignRight={v?.alignRight}
-            key={v4()}
-          />
-        ))}
-      </div>
+    <div className={s.container}>
+      {props.messages.map((v) => (
+        <DialogMessage
+          message={v.message}
+          alignRight={v?.alignRight}
+          key={v4()}
+        />
+      ))}
       <div className={s.input_group}>
         <textarea className={s.text_input} cols={20} rows={3} />
         <button className={s.btn}>Send</button>

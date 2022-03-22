@@ -20,100 +20,6 @@ export let state = {
     messages: [
       {
         message: "Test",
-      },
-      {
-        message: "Test",
-        alignRight: true,
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-        alignRight: true,
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-        alignRight: true,
-      },
-      {
-        message: "Test",
-        alignRight: true,
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-        alignRight: true,
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-        alignRight: true,
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-        alignRight: true,
-      },
-      {
-        message: "Test",
-        alignRight: true,
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-        alignRight: true,
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-        alignRight: true,
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
-      },
-      {
-        message: "Test",
         alignRight: true,
       },
       {
@@ -185,6 +91,18 @@ export let state = {
       },
     ],
     newPostText: "",
+    updateNewPostText: (text) => {
+      state.profilePage.newPostText = text;
+      runTreeRender(state);
+    },
+    addPost: () => {
+      state.profilePage.posts.push({
+        id: 5,
+        text: state.profilePage.newPostText,
+        likes: 45,
+      });
+      runTreeRender(state);
+    },
   },
 
   navbar: {
@@ -218,18 +136,4 @@ export let state = {
       },
     ],
   },
-};
-
-export const addPost = () => {
-  state.profilePage.posts.push({
-    id: 5,
-    text: state.profilePage.newPostText,
-    likes: 45,
-  });
-  runTreeRender(state, { addPost });
-};
-
-export const updateNewPostText = (text) => {
-  state.profilePage.newPostText = text;
-  runTreeRender(state, { addPost, updateNewPostText });
 };
