@@ -2,12 +2,17 @@ import React from "react";
 import Post from "./Post/Post";
 import s from "./posts.module.css";
 import { v4 } from "uuid";
+import {
+  addPostActionCreator,
+  updateNewPostTextActionCreator,
+} from "../../../redux/state";
 
 const Posts = (props) => {
   let newPost = React.createRef();
   const onPostTextChange = (text) => {
-    props.dispatch({ type: "UPDATE-NEW-POST-TEXT", text });
+    props.dispatch(updateNewPostTextActionCreator(text));
   };
+
   return (
     <div className={s.container}>
       <h2 className={s.title}>My posts</h2>
@@ -25,7 +30,7 @@ const Posts = (props) => {
         <button
           className={s.form__button}
           onClick={() => {
-            props.dispatch({ type: "ADD-POST" });
+            props.dispatch(addPostActionCreator());
           }}>
           Add post
         </button>

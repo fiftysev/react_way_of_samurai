@@ -1,6 +1,10 @@
 import React from "react";
 import s from "./dialog.module.css";
 import { v4 } from "uuid";
+import {
+  sendMessageActionCreator,
+  updateNewMessageTextActionCreator,
+} from "../../../redux/state";
 
 const DialogMessage = (props) => {
   return (
@@ -12,8 +16,9 @@ const DialogMessage = (props) => {
 
 const Dialog = (props) => {
   const onMessageTextChange = (text) => {
-    props.dispatch({ type: "UPDATE-NEW-MESSAGE-TEXT", text });
+    props.dispatch(updateNewMessageTextActionCreator(text));
   };
+
   return (
     <div className={s.container}>
       {props.state.messages.map((v) => (
@@ -34,7 +39,7 @@ const Dialog = (props) => {
         <button
           className={s.btn}
           onClick={() => {
-            props.dispatch({ type: "SEND-MESSAGE" });
+            props.dispatch(sendMessageActionCreator());
           }}>
           Send
         </button>

@@ -169,4 +169,19 @@ export let store = {
   },
 };
 
-window.store = store;
+export const ADD_POST = "ADD-POST";
+export const SEND_MESSAGE = "SEND-MESSAGE";
+export const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+export const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+
+export const addPostActionCreator = () => ({ type: ADD_POST });
+export const sendMessageActionCreator = () => ({ type: SEND_MESSAGE });
+
+export const updateNewPostTextActionCreator = (text) => ({
+  type: UPDATE_NEW_POST_TEXT,
+  text,
+});
+export const updateNewMessageTextActionCreator = (text) => ({
+  type: UPDATE_NEW_MESSAGE_TEXT,
+  text,
+});
