@@ -18,7 +18,7 @@ const Profile = (props) => {
           </div>
         </div>
       </div>
-      <Posts state={props.state} />
+      <Posts state={props.state} actions={props.actions} />
     </>
   );
 };

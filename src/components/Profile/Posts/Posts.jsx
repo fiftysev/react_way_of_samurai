@@ -13,7 +13,9 @@ const Posts = (props) => {
           ref={newPost}
           className={s.form__input}
           value={props.state.newPostText}
-          onChange={() => props.state.updateNewPostText(newPost.current.value)}
+          onChange={() =>
+            props.actions.updateNewPostText(newPost.current.value)
+          }
           name="postText"
           id="create_post"
           cols="20"
@@ -22,8 +24,8 @@ const Posts = (props) => {
         <button
           className={s.form__button}
           onClick={() => {
-            props.state.addPost();
-            props.state.updateNewPostText("");
+            props.actions.addPost();
+            props.actions.updateNewPostText("");
           }}>
           Add post
         </button>

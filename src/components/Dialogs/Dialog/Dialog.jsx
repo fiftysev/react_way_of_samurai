@@ -26,13 +26,15 @@ const Dialog = (props) => {
           cols={20}
           rows={3}
           value={props.state.newMessageText}
-          onChange={(e) => props.state.updateNewMessageText(e.target.value)}
+          onChange={(e) => props.actions.updateNewMessageText(e.target.value)}
         />
         <button
           className={s.btn}
           onClick={() => {
-            props.state.sendNewMessage();
-            props.state.updateNewMessageText("");
+            if (props.state.newMessageText.trim() !== "") {
+              props.actions.sendNewMessage();
+              props.actions.updateNewMessageText("");
+            }
           }}>
           Send
         </button>
