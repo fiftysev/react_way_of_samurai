@@ -5,6 +5,9 @@ import { v4 } from "uuid";
 
 const Posts = (props) => {
   let newPost = React.createRef();
+  const onPostTextChange = (text) => {
+    props.dispatch({ type: "UPDATE-NEW-POST-TEXT", text });
+  };
   return (
     <div className={s.container}>
       <h2 className={s.title}>My posts</h2>
@@ -13,9 +16,7 @@ const Posts = (props) => {
           ref={newPost}
           className={s.form__input}
           value={props.state.newPostText}
-          onChange={() =>
-            props.actions.updateNewPostText(newPost.current.value)
-          }
+          onChange={(e) => onPostTextChange(e.target.value)}
           name="postText"
           id="create_post"
           cols="20"
@@ -24,8 +25,7 @@ const Posts = (props) => {
         <button
           className={s.form__button}
           onClick={() => {
-            props.actions.addPost();
-            props.actions.updateNewPostText("");
+            props.dispatch({ type: "ADD-POST" });
           }}>
           Add post
         </button>

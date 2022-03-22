@@ -5,15 +5,9 @@ import "./index.css";
 import App from "./App";
 
 export const runTreeRender = (state) => {
-  let actions = {
-    addPost: store.addPost.bind(store),
-    updateNewPostText: store.updateNewPostText.bind(store),
-    updateNewMessageText: store.updateNewMessageText.bind(store),
-    sendNewMessage: store.sendNewMessage.bind(store),
-  };
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} actions={actions} />
+      <App state={state} dispatch={store.dispatch.bind(store)} />
     </React.StrictMode>,
     document.getElementById("root")
   );

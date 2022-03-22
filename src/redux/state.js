@@ -130,28 +130,42 @@ export let store = {
   subscribe(observer) {
     this._callSubscriber = observer;
   },
-  updateNewMessageText(text) {
-    this._state.dialogsPage.newMessageText = text;
-    this._callSubscriber(store.state);
-  },
-  sendNewMessage() {
-    this._state.dialogsPage.messages.push({
-      message: this._state.dialogsPage.newMessageText,
-      alignRight: true,
-    });
-    this._callSubscriber(store.state);
-  },
-  updateNewPostText(text) {
-    this._state.profilePage.newPostText = text;
-    this._callSubscriber(store.state);
-  },
-  addPost() {
-    this._state.profilePage.posts.push({
-      id: 5,
-      text: this._state.profilePage.newPostText,
-      likes: 45,
-    });
-    this._callSubscriber(store);
+
+  dispatch(action) {
+    switch (action.type) {
+      case "ADD-POST":
+        if (this._state.profilePage.newPostText.trim() !== "") {
+          this._state.profilePage.posts.push({
+            id: 5,
+            text: this._state.profilePage.newPostText,
+            likes: 45,
+          });
+          this._state.profilePage.newPostText = "";
+          this._callSubscriber(store.state);
+        }
+        break;
+      case "UPDATE-NEW-POST-TEXT":
+        this._state.profilePage.newPostText = action.text;
+        this._callSubscriber(store.state);
+        break;
+      case "SEND-MESSAGE":
+        if (this._state.dialogsPage.newMessageText.trim() !== "") {
+          this._state.dialogsPage.messages.push({
+            message: this._state.dialogsPage.newMessageText,
+            alignRight: true,
+          });
+          this._state.dialogsPage.newMessageText = "";
+          this._callSubscriber(store.state);
+        }
+        break;
+      case "UPDATE-NEW-MESSAGE-TEXT":
+        this._state.dialogsPage.newMessageText = action.text;
+        this._callSubscriber(store.state);
+        break;
+      default:
+        console.log("Error on parsing action type!");
+        break;
+    }
   },
 };
 

@@ -11,6 +11,9 @@ const DialogMessage = (props) => {
 };
 
 const Dialog = (props) => {
+  const onMessageTextChange = (text) => {
+    props.dispatch({ type: "UPDATE-NEW-MESSAGE-TEXT", text });
+  };
   return (
     <div className={s.container}>
       {props.state.messages.map((v) => (
@@ -26,15 +29,12 @@ const Dialog = (props) => {
           cols={20}
           rows={3}
           value={props.state.newMessageText}
-          onChange={(e) => props.actions.updateNewMessageText(e.target.value)}
+          onChange={(e) => onMessageTextChange(e.target.value)}
         />
         <button
           className={s.btn}
           onClick={() => {
-            if (props.state.newMessageText.trim() !== "") {
-              props.actions.sendNewMessage();
-              props.actions.updateNewMessageText("");
-            }
+            props.dispatch({ type: "SEND-MESSAGE" });
           }}>
           Send
         </button>
