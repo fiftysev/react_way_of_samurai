@@ -13,7 +13,7 @@ const DialogMessage = (props) => {
 const Dialog = (props) => {
   return (
     <div className={s.container}>
-      {props.messages.map((v) => (
+      {props.state.messages.map((v) => (
         <DialogMessage
           message={v.message}
           alignRight={v?.alignRight}
@@ -21,8 +21,21 @@ const Dialog = (props) => {
         />
       ))}
       <div className={s.input_group}>
-        <textarea className={s.text_input} cols={20} rows={3} />
-        <button className={s.btn}>Send</button>
+        <textarea
+          className={s.text_input}
+          cols={20}
+          rows={3}
+          value={props.state.newMessageText}
+          onChange={(e) => props.state.updateNewMessageText(e.target.value)}
+        />
+        <button
+          className={s.btn}
+          onClick={() => {
+            props.state.sendNewMessage();
+            props.state.updateNewMessageText("");
+          }}>
+          Send
+        </button>
       </div>
     </div>
   );

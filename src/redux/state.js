@@ -61,6 +61,18 @@ export let state = {
         alignRight: true,
       },
     ],
+    newMessageText: "",
+    updateNewMessageText: function (text) {
+      this.newMessageText = text;
+      runTreeRender(state);
+    },
+    sendNewMessage: function () {
+      this.messages.push({
+        message: this.newMessageText,
+        alignRight: true,
+      });
+      runTreeRender(state);
+    },
   },
   profilePage: {
     posts: [
@@ -91,12 +103,12 @@ export let state = {
       },
     ],
     newPostText: "",
-    updateNewPostText: (text) => {
-      state.profilePage.newPostText = text;
+    updateNewPostText: function (text) {
+      this.newPostText = text;
       runTreeRender(state);
     },
-    addPost: () => {
-      state.profilePage.posts.push({
+    addPost: function () {
+      this.posts.push({
         id: 5,
         text: state.profilePage.newPostText,
         likes: 45,
