@@ -8,7 +8,69 @@ export const updateNewMessageTextActionCreator = (text) => ({
   text,
 });
 
-const dialogsReducer = (state, action) => {
+let initialState = {
+  dialogs: [
+    {
+      id: 1,
+      name: "Egor",
+    },
+    {
+      id: 2,
+      name: "Zhenya",
+    },
+    {
+      id: 3,
+      name: "Сэмчик",
+    },
+  ],
+  messages: [
+    {
+      message: "Test",
+      alignRight: true,
+    },
+    {
+      message: "Test",
+      alignRight: true,
+    },
+    {
+      message: "Test",
+    },
+    {
+      message: "Test",
+      alignRight: true,
+    },
+    {
+      message: "Test",
+    },
+    {
+      message: "Test",
+      alignRight: true,
+    },
+    {
+      message: "Test",
+    },
+    {
+      message: "Test",
+    },
+    {
+      message: "Test",
+    },
+    {
+      message: "Test",
+    },
+    {
+      message: "Test",
+      alignRight: true,
+    },
+    {
+      message: "Test",
+      alignRight: true,
+    },
+  ],
+  newMessageText: "",
+};
+
+const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
       if (state.newMessageText.trim() !== "") {

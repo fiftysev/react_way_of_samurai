@@ -1,4 +1,4 @@
-import { store } from "./redux/store";
+import store from "./redux/reduxStore";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -13,6 +13,6 @@ export const runTreeRender = (state) => {
   );
 };
 
-runTreeRender(store.state);
+runTreeRender(store.getState());
 
-store.subscribe(runTreeRender);
+store.subscribe(() => runTreeRender(store.getState()));

@@ -8,7 +8,38 @@ export const updateNewPostTextActionCreator = (text) => ({
   text,
 });
 
-const profileReducer = (state, action) => {
+let initialState = {
+  posts: [
+    {
+      text: "My first post!",
+    },
+    {
+      text: "It's props lesson from React course",
+      likes: 424,
+    },
+    {
+      text: "It's props lesson from React course",
+      likes: 424,
+    },
+    {
+      text: "It's props lesson from React course",
+      likes: 424,
+    },
+    {
+      text: "My first post!",
+    },
+    {
+      text: "My first post!",
+      likes: 32,
+    },
+    {
+      text: "My first post!",
+    },
+  ],
+  newPostText: "",
+};
+
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       if (state.newPostText.trim() !== "") {
