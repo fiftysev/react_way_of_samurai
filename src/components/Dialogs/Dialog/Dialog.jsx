@@ -15,13 +15,9 @@ const DialogMessage = (props) => {
 };
 
 const Dialog = (props) => {
-  const onMessageTextChange = (text) => {
-    props.dispatch(updateNewMessageTextActionCreator(text));
-  };
-
   return (
     <div className={s.container}>
-      {props.state.messages.map((v) => (
+      {props.messages.map((v) => (
         <DialogMessage
           message={v.message}
           alignRight={v?.alignRight}
@@ -33,14 +29,10 @@ const Dialog = (props) => {
           className={s.text_input}
           cols={20}
           rows={3}
-          value={props.state.newMessageText}
-          onChange={(e) => onMessageTextChange(e.target.value)}
+          value={props.newMessageText}
+          onChange={(e) => props.onMessageTextChange(e.target.value)}
         />
-        <button
-          className={s.btn}
-          onClick={() => {
-            props.dispatch(sendMessageActionCreator());
-          }}>
+        <button className={s.btn} onClick={props.sendMessage}>
           Send
         </button>
       </div>

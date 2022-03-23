@@ -1,13 +1,14 @@
 import React from "react";
-import Dialog from "./Dialog/Dialog";
 import s from "./dialogs.module.css";
 import DialogsList from "./List/DialogsList";
+import DialogContainer from "./Dialog/DialogContainer";
 
 const Dialogs = (props) => {
+  const dialogsList = props.store.getState().dialogsPage.dialogs;
   return (
     <div className={s.container}>
-      <DialogsList dialogs={props.state.dialogs} />
-      <Dialog state={props.state} dispatch={props.dispatch} />
+      <DialogsList dialogs={dialogsList} />
+      <DialogContainer store={props.store} />
     </div>
   );
 };
