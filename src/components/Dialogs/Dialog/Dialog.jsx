@@ -4,7 +4,7 @@ import { v4 } from "uuid";
 import {
   sendMessageActionCreator,
   updateNewMessageTextActionCreator,
-} from "../../../redux/state";
+} from "../../../redux/dialogsReducer";
 
 const DialogMessage = (props) => {
   return (

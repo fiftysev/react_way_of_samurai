@@ -1,3 +1,6 @@
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+
 export let store = {
   _state: {
     dialogsPage: {
@@ -132,56 +135,9 @@ export let store = {
   },
 
   dispatch(action) {
-    switch (action.type) {
-      case "ADD-POST":
-        if (this._state.profilePage.newPostText.trim() !== "") {
-          this._state.profilePage.posts.push({
-            id: 5,
-            text: this._state.profilePage.newPostText,
-            likes: 45,
-          });
-          this._state.profilePage.newPostText = "";
-          this._callSubscriber(store.state);
-        }
-        break;
-      case "UPDATE-NEW-POST-TEXT":
-        this._state.profilePage.newPostText = action.text;
-        this._callSubscriber(store.state);
-        break;
-      case "SEND-MESSAGE":
-        if (this._state.dialogsPage.newMessageText.trim() !== "") {
-          this._state.dialogsPage.messages.push({
-            message: this._state.dialogsPage.newMessageText,
-            alignRight: true,
-          });
-          this._state.dialogsPage.newMessageText = "";
-          this._callSubscriber(store.state);
-        }
-        break;
-      case "UPDATE-NEW-MESSAGE-TEXT":
-        this._state.dialogsPage.newMessageText = action.text;
-        this._callSubscriber(store.state);
-        break;
-      default:
-        console.log("Error on parsing action type!");
-        break;
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+
+    this._callSubscriber(this._state);
   },
 };
-
-export const ADD_POST = "ADD-POST";
-export const SEND_MESSAGE = "SEND-MESSAGE";
-export const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
-export const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-
-export const addPostActionCreator = () => ({ type: ADD_POST });
-export const sendMessageActionCreator = () => ({ type: SEND_MESSAGE });
-
-export const updateNewPostTextActionCreator = (text) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  text,
-});
-export const updateNewMessageTextActionCreator = (text) => ({
-  type: UPDATE_NEW_MESSAGE_TEXT,
-  text,
-});

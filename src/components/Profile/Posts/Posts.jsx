@@ -5,7 +5,7 @@ import { v4 } from "uuid";
 import {
   addPostActionCreator,
   updateNewPostTextActionCreator,
-} from "../../../redux/state";
+} from "../../../redux/profileReducer";
 
 const Posts = (props) => {
   let newPost = React.createRef();
