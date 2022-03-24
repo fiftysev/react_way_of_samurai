@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import FriendsBlock from "./FriendsBlock/FriendsBlock";
 import s from "./navbar.module.css";
+import FriendsBlockContainer from "./FriendsBlock/FriendsBlockContainer";
 
 const Navbar = (props) => {
   return (
@@ -31,7 +31,7 @@ const Navbar = (props) => {
         className={(navData) => (navData.isActive ? s.active : "")}>
         Settings
       </NavLink>
-      <FriendsBlock friends={props.state.friends} />
+      <FriendsBlockContainer />
     </nav>
   );
 };

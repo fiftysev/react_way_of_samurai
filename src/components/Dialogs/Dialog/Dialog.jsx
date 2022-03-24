@@ -1,10 +1,6 @@
 import React from "react";
 import s from "./dialog.module.css";
 import { v4 } from "uuid";
-import {
-  sendMessageActionCreator,
-  updateNewMessageTextActionCreator,
-} from "../../../redux/dialogsReducer";
 
 const DialogMessage = (props) => {
   return (

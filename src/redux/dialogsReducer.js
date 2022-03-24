@@ -67,19 +67,17 @@ let initialState = {
       alignRight: true,
     },
   ],
-  newMessageText: "",
+  newMessageText: "Test",
 };
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
-      if (state.newMessageText.trim() !== "") {
-        state.messages.push({
-          message: state.newMessageText,
-          alignRight: true,
-        });
-        state.newMessageText = "";
-      }
+      state.messages.push({
+        message: state.newMessageText,
+        alignRight: true,
+      });
+      state.newMessageText = "";
       return state;
     case UPDATE_NEW_MESSAGE_TEXT:
       state.newMessageText = action.text;

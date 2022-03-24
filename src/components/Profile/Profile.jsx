@@ -1,5 +1,4 @@
 import React from "react";
-import Posts from "./Posts/Posts";
 import s from "./profile.module.css";
 import PostsContainer from "./Posts/PostsContainer";
 
@@ -19,7 +18,7 @@ const Profile = (props) => {
           </div>
         </div>
       </div>
-      <PostsContainer store={props.store} />
+      <PostsContainer />
     </>
   );
 };
