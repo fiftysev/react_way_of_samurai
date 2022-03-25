@@ -58,7 +58,7 @@ const profileReducer = (state = initialState, action) => {
       stateCopy.newPostText = action.text;
       return stateCopy;
     default:
-      return stateCopy;
+      return state;
   }
 };
 
