@@ -24,7 +24,7 @@ const UserCard = ({ user, follow, unfollow }) => {
           className={s.follow_btn}
           type="button"
           onClick={() => follow(user.id)}>
-          Подписаться
+          Follow
         </button>
       )}
       {user.followed && (
@@ -32,7 +32,7 @@ const UserCard = ({ user, follow, unfollow }) => {
           className={s.unfollow_btn}
           type="button"
           onClick={() => unfollow(user.id)}>
-          Отписаться
+          Unfollow
         </button>
       )}
     </div>

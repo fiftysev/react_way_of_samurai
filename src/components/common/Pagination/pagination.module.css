@@ -1,0 +1,19 @@
+.container {
+  max-height: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  color: black;
+  height: 2rem;
+  width: 3rem;
+  border: none;
+  cursor: pointer;
+}
+
+.button.active {
+  background-color: #0088CC;
+  color: white;
+  font-weight: bold;
+}

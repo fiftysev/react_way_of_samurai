@@ -1,7 +1,16 @@
-import { FOLLOW, SET_USERS, UNFOLLOW } from "../actions/users";
+import {
+  FOLLOW,
+  SET_CURRENT_PAGE,
+  SET_TOTAL_COUNT,
+  SET_USERS,
+  UNFOLLOW,
+} from "../actions/users";
 
 const initialState = {
   users: [],
+  totalCount: 36,
+  pageSize: 12,
+  currentPage: 1,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -29,7 +38,19 @@ const usersReducer = (state = initialState, action) => {
     case SET_USERS:
       return {
         ...state,
-        users: [...state.users, ...action.users],
+        users: action.users,
+      };
+    case SET_TOTAL_COUNT:
+      return {
+        ...state,
+        users: [...state.users],
+        totalCount: action.totalCount,
+      };
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        users: [...state.users],
+        currentPage: action.currentPage,
       };
     default:
       return state;
