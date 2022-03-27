@@ -4,20 +4,21 @@ import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { BsChatTextFill } from "react-icons/bs";
 
 const UserCard = ({ user, follow, unfollow }) => {
+  const avatarSrc = user.photos.small ? user.photos.small : "./IMG_4421.JPG";
   return (
     <div className={s.container}>
-      <img src="./IMG_4421.JPG" alt="avatar" className={s.avatar} />
-      <p className={s.text + " " + s.name}>
-        {user.first_name} {user.last_name}
-      </p>
+      <img src={avatarSrc} alt="avatar" className={s.avatar} />
+      <p className={s.text + " " + s.name}>{user.name}</p>
+      {user.address && (
+        <p className={s.text}>
+          <SiHomeassistantcommunitystore />
+          {user.address.city}, {user.address.country}
+        </p>
+      )}
       <p className={s.text}>
-        <SiHomeassistantcommunitystore /> {user.address.city},{" "}
-        {user.address.country}
+        <BsChatTextFill /> {user.status || "React Status"}
       </p>
-      <p className={s.text}>
-        <BsChatTextFill /> {user.status}
-      </p>
-      <p className={s.text}>@{user.username}</p>
+      {user.uniqueUrlName && <p className={s.text}>@{user.uniqueUrlName}</p>}
       {!user.followed && (
         <button
           className={s.follow_btn}
