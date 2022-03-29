@@ -11,7 +11,7 @@ const Posts = (props) => {
         <textarea
           className={s.form__input}
           value={props.newPostText}
-          onChange={(e) => props.onPostTextChange(e.target.value)}
+          onChange={(e) => props.updateNewPostText(e.target.value)}
           name="postText"
           id="create_post"
           cols="20"

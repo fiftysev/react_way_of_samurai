@@ -26,7 +26,7 @@ const Dialog = (props) => {
           cols={20}
           rows={3}
           value={props.newMessageText}
-          onChange={(e) => props.onMessageTextChange(e.target.value)}
+          onChange={(e) => props.updateNewMessageText(e.target.value)}
         />
         <button className={s.btn} onClick={props.sendMessage}>
           Send
