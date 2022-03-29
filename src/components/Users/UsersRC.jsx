@@ -2,11 +2,11 @@ import React from "react";
 import UserCard from "./UserCard/UserCard";
 import s from "./users.module.css";
 import axios from "axios";
-import Users from "./Users";
 import Pagination from "../common/Pagination/Pagination";
 
 class UsersRC extends React.Component {
   componentDidMount() {
+    this.props.setIsFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
@@ -14,17 +14,20 @@ class UsersRC extends React.Component {
       .then((r) => {
         this.props.setUsers(r.data.items);
         this.props.setTotalCount(r.data.totalCount);
+        this.props.setIsFetching(false);
       });
   }
 
   getUsers = (page) => {
     this.props.setCurrentPage(page);
+    this.props.setIsFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`
       )
       .then((r) => {
         this.props.setUsers(r.data.items);
+        this.props.setIsFetching(false);
       });
   };
 
@@ -38,6 +41,7 @@ class UsersRC extends React.Component {
           neighbors={4}
           onPageChange={this.getUsers}
         />
+        {this.props.isFetching && <div className={s.loader} />}
         <div className={s.container}>
           {this.props.users.map((user) => {
             return (

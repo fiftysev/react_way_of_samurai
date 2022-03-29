@@ -1,6 +1,7 @@
 import {
   FOLLOW,
   SET_CURRENT_PAGE,
+  SET_IS_FETCHING,
   SET_TOTAL_COUNT,
   SET_USERS,
   UNFOLLOW,
@@ -11,6 +12,7 @@ const initialState = {
   totalCount: 36,
   pageSize: 12,
   currentPage: 1,
+  isFetching: false,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -51,6 +53,11 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         users: [...state.users],
         currentPage: action.currentPage,
+      };
+    case SET_IS_FETCHING:
+      return {
+        ...state,
+        isFetching: action.isFetching,
       };
     default:
       return state;
