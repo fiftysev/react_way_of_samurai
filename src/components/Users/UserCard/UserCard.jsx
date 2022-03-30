@@ -2,13 +2,16 @@ import React from "react";
 import s from "./user_card.module.css";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { BsChatTextFill } from "react-icons/bs";
+import { NavLink } from "react-router-dom";
 
 const UserCard = ({ user, follow, unfollow }) => {
   const avatarSrc = user.photos.small ? user.photos.small : "./IMG_4421.JPG";
   return (
     <div className={s.container}>
       <img src={avatarSrc} alt="avatar" className={s.avatar} />
-      <p className={s.text + " " + s.name}>{user.name}</p>
+      <NavLink className={s.text + " " + s.name} to={`/profile/${user.id}`}>
+        {user.name}
+      </NavLink>
       {user.address && (
         <p className={s.text}>
           <SiHomeassistantcommunitystore />
