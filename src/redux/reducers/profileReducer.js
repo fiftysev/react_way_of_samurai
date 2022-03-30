@@ -1,4 +1,8 @@
-import { ADD_POST, UPDATE_NEW_POST_TEXT } from "../actions/profile";
+import {
+  ADD_POST,
+  SET_USER_PROFILE,
+  UPDATE_NEW_POST_TEXT,
+} from "../actions/profile";
 
 let initialState = {
   posts: [
@@ -29,6 +33,7 @@ let initialState = {
     },
   ],
   newPostText: "",
+  profile: {},
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -49,6 +54,11 @@ const profileReducer = (state = initialState, action) => {
       return {
         ...state,
         newPostText: "",
+      };
+    case SET_USER_PROFILE:
+      return {
+        ...state,
+        profile: { ...action.profile },
       };
     default:
       return state;

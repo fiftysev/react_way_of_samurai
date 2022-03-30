@@ -2,7 +2,6 @@ import React from "react";
 import UserCard from "./UserCard/UserCard";
 import s from "./users.module.css";
 import axios from "axios";
-import Users from "./Users";
 import Pagination from "../common/Pagination/Pagination";
 
 class UsersRC extends React.Component {

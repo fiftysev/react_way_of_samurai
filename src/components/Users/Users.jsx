@@ -1,7 +1,6 @@
 import React from "react";
 import UserCard from "./UserCard/UserCard";
 import s from "./users.module.css";
-import users from "../../constants";
 import axios from "axios";
 
 const Users = (props) => {
