@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
 import { setUserProfile } from "../../redux/actions/profile";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-class ProfileContainer extends React.Component {
-  componentDidMount() {
+const ProfileContainer = ({ profile, setUserProfile }) => {
+  let { userId } = useParams();
+
+  if (!userId) {
+    userId = 2;
+  }
+
+  useEffect(() => {
     axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+      .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
       .then((res) => {
-        this.props.setUserProfile(res.data);
+        setUserProfile(res.data);
       });
-  }
+  }, [profile, setUserProfile, userId]);
 
-  render() {
-    return <Profile user={this.props.profile} />;
-  }
-}
+  return <Profile user={profile} />;
+};
 
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,

@@ -6,11 +6,7 @@ const ProfileInfo = ({ user }) => {
     return (
       <div className={s.wrapper}>
         <div className={s.profile}>
-          <img
-            src={"https://source.unsplash.com/random/128x128"}
-            alt="avatar"
-            className={s.avatar}
-          />
+          <img src={user.photos.small} alt="avatar" className={s.avatar} />
           <div className={s.info}>
             <p className={s.info__text}>{user.fullName}</p>
             <p className={s.info__text}>
