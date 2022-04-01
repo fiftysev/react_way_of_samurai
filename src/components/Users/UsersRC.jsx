@@ -3,31 +3,33 @@ import UserCard from "./UserCard/UserCard";
 import s from "./users.module.css";
 import axios from "axios";
 import Pagination from "../common/Pagination/Pagination";
+import { v4 } from "uuid";
 
 class UsersRC extends React.Component {
   componentDidMount() {
     this.props.setIsFetching(true);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
+        { withCredentials: true }
       )
       .then((r) => {
+        this.props.setIsFetching(false);
         this.props.setUsers(r.data.items);
         this.props.setTotalCount(r.data.totalCount);
-        this.props.setIsFetching(false);
       });
   }
 
   getUsers = (page) => {
     this.props.setCurrentPage(page);
-    this.props.setIsFetching(true);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`,
+        { withCredentials: true }
       )
       .then((r) => {
-        this.props.setUsers(r.data.items);
         this.props.setIsFetching(false);
+        this.props.setUsers(r.data.items);
       });
   };
 
@@ -46,6 +48,7 @@ class UsersRC extends React.Component {
           {this.props.users.map((user) => {
             return (
               <UserCard
+                key={v4()}
                 user={user}
                 follow={this.props.follow}
                 unfollow={this.props.unfollow}
