@@ -3,45 +3,24 @@ import s from "./user_card.module.css";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { BsChatTextFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
+import { UserService } from "../../../api/services/userService";
 
 const UserCard = ({ user, ...actions }) => {
   const avatarSrc = user.photos.small ? user.photos.small : "./IMG_4421.JPG";
   const follow = () => {
-    axios
-      .post(
-        `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
-        {},
-        {
-          withCredentials: true,
-          headers: {
-            "API-KEY": "43f0c297-2531-4067-973e-a9fefbbb5845",
-          },
-        }
-      )
-      .then((res) => {
-        if (res.data.resultCode === 0) {
-          actions.follow(user.id);
-        }
-      });
+    UserService.follow(user.id).then((data) => {
+      if (data.resultCode === 0) {
+        actions.follow(user.id);
+      }
+    });
   };
 
   const unfollow = () => {
-    axios
-      .delete(
-        `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
-        {
-          withCredentials: true,
-          headers: {
-            "API-KEY": "43f0c297-2531-4067-973e-a9fefbbb5845",
-          },
-        }
-      )
-      .then((res) => {
-        if (res.data.resultCode === 0) {
-          actions.unfollow(user.id);
-        }
-      });
+    UserService.unfollow(user.id).then((data) => {
+      if (data.resultCode === 0) {
+        actions.unfollow(user.id);
+      }
+    });
   };
 
   return (

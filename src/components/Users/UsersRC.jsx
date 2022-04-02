@@ -1,36 +1,28 @@
 import React from "react";
 import UserCard from "./UserCard/UserCard";
 import s from "./users.module.css";
-import axios from "axios";
 import Pagination from "../common/Pagination/Pagination";
 import { v4 } from "uuid";
+import { UserService } from "../../api/services/userService";
 
 class UsersRC extends React.Component {
   componentDidMount() {
     this.props.setIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
-        { withCredentials: true }
-      )
-      .then((r) => {
+    UserService.getUsers(this.props.currentPage, this.props.pageSize).then(
+      (data) => {
         this.props.setIsFetching(false);
-        this.props.setUsers(r.data.items);
-        this.props.setTotalCount(r.data.totalCount);
-      });
+        this.props.setUsers(data.items);
+        this.props.setTotalCount(data.totalCount);
+      }
+    );
   }
 
   getUsers = (page) => {
     this.props.setCurrentPage(page);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`,
-        { withCredentials: true }
-      )
-      .then((r) => {
-        this.props.setIsFetching(false);
-        this.props.setUsers(r.data.items);
-      });
+    UserService.getUsers(page, this.props.pageSize).then((data) => {
+      this.props.setIsFetching(false);
+      this.props.setUsers(data.items);
+    });
   };
 
   render() {
