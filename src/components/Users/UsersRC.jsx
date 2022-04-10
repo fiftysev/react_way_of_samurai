@@ -3,26 +3,15 @@ import UserCard from "./UserCard/UserCard";
 import s from "./users.module.css";
 import Pagination from "../common/Pagination/Pagination";
 import { v4 } from "uuid";
-import { UserService } from "../../api/services/userService";
 
 class UsersRC extends React.Component {
   componentDidMount() {
-    this.props.setIsFetching(true);
-    UserService.getUsers(this.props.currentPage, this.props.pageSize).then(
-      (data) => {
-        this.props.setIsFetching(false);
-        this.props.setUsers(data.items);
-        this.props.setTotalCount(data.totalCount);
-      }
-    );
+    this.props.getUsers(this.props.currentPage, this.props.pageSize);
   }
 
   getUsers = (page) => {
     this.props.setCurrentPage(page);
-    UserService.getUsers(page, this.props.pageSize).then((data) => {
-      this.props.setIsFetching(false);
-      this.props.setUsers(data.items);
-    });
+    this.props.getUsers(page, this.props.pageSize);
   };
 
   render() {

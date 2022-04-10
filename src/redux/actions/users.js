@@ -1,3 +1,5 @@
+import { UserService } from "../../api/services/userService";
+
 export const FOLLOW = "FOLLOW";
 export const UNFOLLOW = "UNFOLLOW";
 export const SET_USERS = "SET_USERS";
@@ -5,13 +7,13 @@ export const SET_TOTAL_COUNT = "SET_TOTAL_COUNT";
 export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 export const SET_IS_FETCHING = "SET_IS_FETCHING";
 
-export const follow = (userId) => ({ type: FOLLOW, userId });
+const followSuccess = (userId) => ({ type: FOLLOW, userId });
 
-export const unfollow = (userId) => ({ type: UNFOLLOW, userId });
+const unfollowSuccess = (userId) => ({ type: UNFOLLOW, userId });
 
-export const setUsers = (users) => ({ type: SET_USERS, users });
+const setUsers = (users) => ({ type: SET_USERS, users });
 
-export const setTotalCount = (totalCount) => ({
+const setTotalCount = (totalCount) => ({
   type: SET_TOTAL_COUNT,
   totalCount,
 });
@@ -21,7 +23,39 @@ export const setCurrentPage = (currentPage) => ({
   currentPage,
 });
 
-export const setIsFetching = (isFetching) => ({
+const setIsFetching = (isFetching) => ({
   type: SET_IS_FETCHING,
   isFetching,
 });
+
+export const getUsers = (currentPage, pageSize) => {
+  return (dispatch) => {
+    dispatch(setIsFetching(true));
+
+    UserService.getUsers(currentPage, pageSize).then((data) => {
+      dispatch(setIsFetching(false));
+      dispatch(setUsers(data.items));
+      dispatch(setTotalCount(data.totalCount));
+    });
+  };
+};
+
+export const follow = (userId) => {
+  return (dispatch) => {
+    UserService.follow(userId).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(followSuccess(userId));
+      }
+    });
+  };
+};
+
+export const unfollow = (userId) => {
+  return (dispatch) => {
+    UserService.unfollow(userId).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(unfollowSuccess(userId));
+      }
+    });
+  };
+};

@@ -4,8 +4,12 @@ import {
   SET_IS_FETCHING,
   SET_TOTAL_COUNT,
   SET_USERS,
+  setIsFetching,
+  setTotalCount,
+  setUsers,
   UNFOLLOW,
 } from "../actions/users";
+import { UserService } from "../../api/services/userService";
 
 const initialState = {
   users: [],

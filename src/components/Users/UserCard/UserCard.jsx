@@ -3,30 +3,23 @@ import s from "./user_card.module.css";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { BsChatTextFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
-import { UserService } from "../../../api/services/userService";
 
-const UserCard = ({ user, ...actions }) => {
+const UserCard = (props) => {
+  const { user } = props;
+
   const [inFollowingProgress, setFollowingProgress] = useState(false);
 
   const avatarSrc = user.photos.small ? user.photos.small : "./IMG_4421.JPG";
 
   const follow = () => {
     setFollowingProgress(!inFollowingProgress);
-    UserService.follow(user.id).then((data) => {
-      if (data.resultCode === 0) {
-        actions.follow(user.id);
-      }
-    });
+    props.follow(user.id);
     setFollowingProgress(!inFollowingProgress);
   };
 
   const unfollow = () => {
     setFollowingProgress(!inFollowingProgress);
-    UserService.unfollow(user.id).then((data) => {
-      if (data.resultCode === 0) {
-        actions.unfollow(user.id);
-      }
-    });
+    props.unfollow(user.id);
     setFollowingProgress(!inFollowingProgress);
   };
 
