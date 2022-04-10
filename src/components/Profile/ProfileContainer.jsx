@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
-import { setUserProfile } from "../../redux/actions/profile";
-import axios from "axios";
 import { useParams } from "react-router-dom";
+import { getUserProfile } from "../../redux/actions/profile";
 
-const ProfileContainer = ({ profile, setUserProfile }) => {
+const ProfileContainer = ({ profile, getUserProfile }) => {
   let { userId } = useParams();
 
   if (!userId) {
@@ -13,13 +12,8 @@ const ProfileContainer = ({ profile, setUserProfile }) => {
   }
 
   useEffect(() => {
-    axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-      .then((res) => {
-        setUserProfile(res.data);
-      });
-  }, [profile, setUserProfile, userId]);
-
+    getUserProfile(userId);
+  });
   return <Profile user={profile} />;
 };
 
@@ -28,7 +22,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  setUserProfile,
+  getUserProfile,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);

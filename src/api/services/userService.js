@@ -1,4 +1,5 @@
 import { $api } from "../api-instance";
+import axios from "axios";
 
 export class UserService {
   static getUsers(currentPage = 1, pageSize = 12) {
@@ -13,5 +14,11 @@ export class UserService {
 
   static unfollow(userId = 1) {
     return $api.delete(`/follow/${userId}`).then((res) => res.data);
+  }
+
+  static getProfile(userId) {
+    return axios.get(
+      `https://social-network.samuraijs.com/api/1.0/profile/${userId}`
+    );
   }
 }
