@@ -26,7 +26,7 @@ const UserCard = (props) => {
   return (
     <div className={s.container}>
       <img src={avatarSrc} alt="avatar" className={s.avatar} />
-      <NavLink className={s.text + " " + s.name} to={`/profile/${user.id}`}>
+      <NavLink className={s.text + " " + s.name} to={`/user/${user.id}`}>
         {user.name}
       </NavLink>
       {user.address && (

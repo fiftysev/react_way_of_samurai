@@ -2,6 +2,7 @@ import React from "react";
 import s from "./pagination.module.css";
 import _ from "lodash";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { v4 } from "uuid";
 
 const pagesRange = (current, last, neighbors = 2) => {
   let range = [];
@@ -40,6 +41,7 @@ const Pagination = (props) => {
       <button
         className={`${s.button} ${props.currentPage === v && s.active}`}
         onClick={() => props.onPageChange(v)}>
+        key={v4()}
         {v}
       </button>
     );

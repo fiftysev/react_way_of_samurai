@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import RequireAuth from "./components/common/ProtectedRoute/RequireAuth";
 
 const App = (props) => {
   return (
@@ -16,11 +17,23 @@ const App = (props) => {
         <Navbar />
         <div className="App-wrapper__content">
           <Routes>
-            <Route path="/profile" element={<ProfileContainer />}>
-              <Route index element={<ProfileContainer />} />
-              <Route path={":userId"} element={<ProfileContainer />} />
-            </Route>
-            <Route path="/dialogs/*" element={<Dialogs />} />
+            <Route
+              path={"/profile"}
+              element={
+                <RequireAuth>
+                  <ProfileContainer />
+                </RequireAuth>
+              }
+            />
+            <Route path="/user/:userId" element={<ProfileContainer />} />
+            <Route
+              path="/dialogs/*"
+              element={
+                <RequireAuth>
+                  <Dialogs />
+                </RequireAuth>
+              }
+            />
             <Route path="/users" element={<UsersContainer />} />
           </Routes>
         </div>
